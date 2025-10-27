@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛍️ Products</title>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ✅ Navigation Bar */
+        nav {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 25px;
+        }
+
+        nav h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+        }
+
+        nav .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            background-color: #ff6600;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav .nav-links a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 30px 0 10px;
+            font-size: 2rem;
+        }
+
+        .top-buttons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .top-buttons a {
+            text-decoration: none;
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .top-buttons a:hover {
+            background-color: #ff6600;
+        }
+
+        .cart-badge {
+            position: fixed;
+            top: 80px;
+            right: 30px;
+            background-color: orange;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            width: 90%;
+            margin: auto;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            margin: 12px 0 5px;
+            font-size: 1.1rem;
+        }
+
+        .product-card p {
+            margin: 4px 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .product-card .price {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .product-card .discount {
+            color: green;
+            font-size: 0.9rem;
+        }
+
+        .add-cart-section {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        input[type="number"] {
+            width: 50px;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 7px 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff6600;
+        }
+
+        @media (max-width: 600px) {
+            .product-card img {
+                height: 200px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ✅ Navigation Bar -->
+<nav>
+    <h2>MyShop</h2>
+    <div class="nav-links">
+        <a th:href="@{/page}">🏠 Back to Home</a>
+    </div>
+</nav>
+
+<!-- ✅ Cart Badge -->
+<div class="cart-badge">
+    Cart: <span id="cart-count" th:text="${cartCount}">0</span>
+</div>
+
+<!-- ✅ Title -->
+<h1>🛍️ Our Products</h1>
+
+<!-- ✅ Top Buttons -->
+<div class="top-buttons">
+    <a th:href="@{/cart}">View Cart</a>
+    <a th:href="@{/cart/checkOut}">Checkout</a>
+</div>
+
+<!-- ✅ Product Grid -->
+<div class="product-grid">
+    <div th:each="product : ${products}" class="product-card">
+        <a th:href="@{/product/{id}(id=${product.id})}" style="text-decoration:none; color: inherit;">
+            <img th:src="${product.imageUrl}" alt="Product Image">
+            <h3 th:text="${product.name}">Product Name</h3>
+            <p th:text="${product.description}">Product Description</p>
+            <p class="price">Price: ₹<span th:text="${product.price}">0.0</span></p>
+        </a>
+
+
+        <!-- Optional: keep Add to Cart button here OR move to details page -->
+        <form class="add-cart-section" onsubmit="addToCart(event, this)">
+            <input type="hidden" name="productId" th:value="${product.id}">
+            <input type="hidden" name="name" th:value="${product.name}">
+            <input type="hidden" name="price" th:value="${product.price}">
+            <input type="hidden" name="productImg" th:value="${product.imageUrl}">
+            <input type="number" name="quantity" value="1" min="1">
+            <button type="submit">Add to Cart</button>
+        </form>
+    </div>
+</div>
+
+<!-- ✅ JavaScript -->
+<script>
+    async function addToCart(event, form) {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const data = new URLSearchParams(formData);
+
+        const response = await fetch('/cart/add', {
+            method: 'POST',
+            body: data
+        });
+
+        const result = await response.text();
+        if (result === 'success') {
+            const cartCount = document.getElementById('cart-count');
+            cartCount.textContent = parseInt(cartCount.textContent) + 1;
+            alert('🛒 Added to cart successfully!');
+        } else {
+            alert('⚠️ Failed to add to cart. Please try again.');
+        }
+    }
+</script>
+
+</body>
+</html>

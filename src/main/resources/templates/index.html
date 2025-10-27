@@ -12,7 +12,7 @@
   <meta name="keywords" content="Online Store">
   <meta name="description" content="Stylish - Shoes Online Store HTML Template">
 
-  <link rel="stylesheet" href="css/vendor.css">
+  <link href="css/vendor.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -152,27 +152,26 @@
         <div class="modal-body">
           <div class="col-lg-12 col-md-12 me-3">
             <div class="image-holder">
-              <img src="images/summary-item1.jpg" alt="Shoes">
+              <img src="images/top-1.jpg" alt="Shoes" style="height:100px; width:100px">
             </div>
           </div>
           <div class="col-lg-12 col-md-12">
             <div class="summary">
               <div class="summary-content fs-6">
                 <div class="product-header d-flex justify-content-between mt-4">
-                  <h3 class="display-7">Running Shoes For Men</h3>
+                  <h3 class="display-7">Tops for women</h3>
                   <div class="modal-close-btn">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     </button>
                   </div>
                 </div>
-                <span class="product-price fs-3">$99</span>
+                <span class="product-price fs-3">Rs.299</span>
                 <div class="product-details">
-                  <p class="fs-7">Buy good shoes and a good mattress, because when you're not in one you're in the
-                    other. With four pairs of shoes, I can travel the world.</p>
+                  <p class="fs-7">Style that speaks without saying a word.</p>
                 </div>
                 <ul class="select">
                   <li>
-                    <strong>Colour Shown:</strong> Red, White, Black
+                    <strong>Colour Shown:</strong> Red, White, Blue
                   </li>
                   <li>
                     <strong>Style:</strong> SM3018-100
@@ -201,17 +200,22 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <a rel="nofollow" data-no-instant="" href="#" class="out-stock button">Out of stock</a>
-                      <button type="submit" class="btn btn-medium btn-black hvr-sweep-to-right">Add to cart</button>
-                    </div>
+                      <form th:action="@{/cart}" method="get">
+                          <div class="col-md-6">
+                              <a rel="nofollow" data-no-instant href="#" class="out-stock button">Out of stock</a>
+                              <button type="submit" class="btn btn-medium btn-black hvr-sweep-to-right">
+                                  Add to cart
+                              </button>
+                          </div>
+                      </form>
+
                   </div>
                 </div>
                 <!-- variations-form -->
                 <div class="categories d-flex flex-wrap pt-3">
                   <strong class="pe-2">Categories:</strong>
                   <a href="#" title="categories">Clothing,</a>
-                  <a href="#" title="categories">Men's Clothes,</a>
+                  <a href="#" title="categories">Women's Clothes,</a>
                   <a href="#" title="categories">Tops & T-Shirts</a>
                 </div>
               </div>
@@ -237,12 +241,12 @@
                 <div class="mini-cart-item d-flex border-bottom pb-3">
                   <div class="col-lg-2 col-md-3 col-sm-2 me-4">
                     <a href="#" title="product-image">
-                      <img src="images/single-product-thumb1.jpg" class="img-fluid" alt="single-product-item">
+                      <img src="images/top-2.webp" class="img-fluid" alt="single-product-item">
                     </a>
                   </div>
                   <div class="col-lg-9 col-md-8 col-sm-8">
                     <div class="product-header d-flex justify-content-between align-items-center mb-3">
-                      <h4 class="product-title fs-6 me-5">Sport Shoes For Men</h4>
+                      <h4 class="product-title fs-6 me-5">Casual Top for Women</h4>
                       <a href="" class="remove" aria-label="Remove this item" data-product_id="11913"
                         data-cart_item_key="abc" data-product_sku="">
                         <svg class="close">
@@ -268,7 +272,7 @@
                         </button>
                       </div>
                       <div class="price-code">
-                        <span class="product-price fs-6">$99</span>
+                        <span class="product-price fs-6">Rs.299</span>
                       </div>
                     </div>
                     <!-- quantity-price -->
@@ -279,12 +283,12 @@
                 <div class="mini-cart-item d-flex border-bottom pb-3">
                   <div class="col-lg-2 col-md-3 col-sm-2 me-4">
                     <a href="#" title="product-image">
-                      <img src="images/single-product-thumb2.jpg" class="img-fluid" alt="single-product-item">
+                      <img src="images/shirt-8.jpg" class="img-fluid" alt="single-product-item">
                     </a>
                   </div>
                   <div class="col-lg-9 col-md-8 col-sm-8">
                     <div class="product-header d-flex justify-content-between align-items-center mb-3">
-                      <h4 class="product-title fs-6 me-5">Brand Shoes For Men</h4>
+                      <h4 class="product-title fs-6 me-5">Shirts For men</h4>
                       <a href="" class="remove" aria-label="Remove this item" data-product_id="11913"
                         data-cart_item_key="abc" data-product_sku="">
                         <svg class="close">
@@ -310,7 +314,7 @@
                         </button>
                       </div>
                       <div class="price-code">
-                        <span class="product-price fs-6">$99</span>
+                        <span class="product-price fs-6">Rs.599</span>
                       </div>
                     </div>
                     <!-- quantity-price -->
@@ -323,14 +327,13 @@
                 <span class="special-price-code">
                   <span class="price-amount amount fs-6" style="opacity: 1;">
                     <bdi>
-                      <span class="price-currency-symbol">$</span>198.00 </bdi>
+                      <span class="price-currency-symbol">$</span>299.00 </bdi>
                   </span>
                 </span>
               </div>
               <div class="modal-footer my-4 justify-content-center">
-                <button type="button" class="btn btn-red hvr-sweep-to-right dark-sweep">View Cart</button>
-                <button type="button"
-                  class="btn btn-outline-gray hvr-sweep-to-right dark-sweep">Checkout</button>
+                <a th:href="@{/cart}" class="btn btn-red hvr-sweep-to-right dark-sweep">View Cart</a>
+                <a th:href="@{/checkout}" class="btn btn-outline-gray hvr-sweep-to-right dark-sweep">Checkout</a>
               </div>
             </div>
           </div>
@@ -350,7 +353,7 @@
           <div class="login-detail">
             <div class="login-form p-0">
               <div class="col-lg-12 mx-auto">
-                <form id="login-form">
+                <form id="login-form" th:action="@{pageEntity/save}" th:object="${pageEntity}" method="post">
                   <input type="text" name="username" placeholder="Username or Email Address *"
                     class="mb-3 ps-3 text-input">
                   <input type="password" name="password" placeholder="Password" class="ps-3 text-input">
@@ -547,7 +550,7 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="card d-flex flex-row align-items-end border-0 large jarallax-keep-img">
-              <img src="images/card-image1.jpg" alt="shoes" class="img-fluid jarallax-img">
+              <img src="images/top-1.jpg" alt="shoes" class="img-fluid jarallax-img">
               <div class="cart-concern p-3 m-3 p-lg-5 m-lg-5">
                 <h2 class="card-title display-3 light">Stylish dress for Women</h2>
                 <a href="index.html"
@@ -559,7 +562,7 @@
             <div class="row g-4">
               <div class="col-lg-12 mb-4">
                 <div class="card d-flex flex-row align-items-end border-0 jarallax-keep-img">
-                  <img src="images/card-image2.jpg" alt="shoes" class="img-fluid jarallax-img">
+                  <img src="images/top-2.webp" alt="shoes" class="img-fluid jarallax-img">
                   <div class="cart-concern p-3 m-3 p-lg-5 m-lg-5">
                     <h2 class="card-title style-2 display-4 light">Top Wear</h2>
                     <a href="index.html"
@@ -569,9 +572,9 @@
               </div>
               <div class="col-lg-12">
                 <div class="card d-flex flex-row align-items-end border-0 jarallax-keep-img">
-                  <img src="images/card-image3.jpg" alt="shoes" class="img-fluid jarallax-img">
+                  <img src="images/top-3.jpg" alt="shoes" class="img-fluid jarallax-img" style="height:470px; width:100%">
                   <div class="cart-concern p-3 m-3 p-lg-5 m-lg-5">
-                    <h2 class="card-title style-2 display-4 light">Foot Wears</h2>
+                    <h2 class="card-title style-2 display-4 light">Kurthis</h2>
                     <a href="index.html"
                       class="text-uppercase light mt-3 d-inline-block text-hover fw-bold light-border">Shop Now</a>
                   </div>
@@ -581,9 +584,9 @@
           </div>
           <div class="swiper-slide">
             <div class="card d-flex flex-row align-items-end border-0 large jarallax-keep-img">
-              <img src="images/card-image4.jpg" alt="shoes" class="img-fluid jarallax-img">
+              <img src="images/top-4.webp" alt="shoes" class="img-fluid jarallax-img">
               <div class="cart-concern p-3 m-3 p-lg-5 m-lg-5">
-                <h2 class="card-title display-3 light">Stylish dress for men</h2>
+                <h2 class="card-title display-3 light">Ethinic Wears for Women</h2>
                 <a href="index.html"
                   class="text-uppercase light mt-3 d-inline-block text-hover fw-bold light-border">Shop Now</a>
               </div>
@@ -593,9 +596,9 @@
             <div class="row g-4">
               <div class="col-lg-12 mb-4">
                 <div class="card d-flex flex-row align-items-end border-0 jarallax-keep-img">
-                  <img src="images/card-image5.jpg" alt="shoes" class="img-fluid jarallax-img">
+                  <img src="images/shirt-1.jpg" style="height:470px" alt="shoes" class="img-fluid jarallax-img">
                   <div class="cart-concern p-3 m-3 p-lg-5 m-lg-5">
-                    <h2 class="card-title style-2 display-4 light">Men dresses</h2>
+                    <h2 class="card-title style-2 display-4 light">Mens Shirts</h2>
                     <a href="index.html"
                       class="text-uppercase light mt-3 d-inline-block text-hover fw-bold light-border">Shop Now</a>
                   </div>
@@ -603,9 +606,9 @@
               </div>
               <div class="col-lg-12">
                 <div class="card d-flex flex-row align-items-end border-0 jarallax-keep-img">
-                  <img src="images/card-image6.jpg" alt="shoes" class="img-fluid jarallax-img">
+                  <img src="images/shirt-2.jpg" style="height:470px" alt="shoes" class="img-fluid jarallax-img">
                   <div class="cart-concern p-3 m-3 p-lg-5 m-lg-5">
-                    <h2 class="card-title style-2 display-4 light">Women dresses</h2>
+                    <h2 class="card-title style-2 display-4 light">Formal Shirt For Men</h2>
                     <a href="index.html"
                       class="text-uppercase light mt-3 d-inline-block text-hover fw-bold light-border">Shop Now</a>
                   </div>
@@ -642,8 +645,8 @@
     <div class="container-md">
       <div class="display-header d-flex align-items-center justify-content-between">
         <h2 class="section-title text-uppercase">Featured Products</h2>
-        <div class="btn-right">
-          <a href="index.html" class="d-inline-block text-uppercase text-hover fw-bold">View all</a>
+        <div>
+            <a th:href="@{/products}" class="d-inline-block text-uppercase text-hover fw-bold">View all</a>
         </div>
       </div>
       <div class="product-content padding-small">
@@ -651,7 +654,7 @@
           <div class="col mb-4">
             <div class="product-card position-relative">
               <div class="card-img">
-                <img src="images/card-item1.jpg" alt="product-item" class="product-image img-fluid">
+                <img src="images/shirt-3.webp" style="height:310px; width:305px" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
                   <div class="cart-button d-flex gap-2 justify-content-center align-items-center">
                     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -672,14 +675,14 @@
                 <h3 class="card-title fs-6 fw-normal m-0">
                   <a href="index.html">Shirts for men</a>
                 </h3>
-                <span class="card-price fw-bold">$99</span>
+                <span class="card-price fw-bold">299</span>
               </div>
             </div>
           </div>
           <div class="col mb-4">
             <div class="product-card position-relative">
               <div class="card-img">
-                <img src="images/card-item2.jpg" alt="product-item" class="product-image img-fluid">
+                <img src="images/top-4.webp" style="height:310px; width:305px" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
                   <div class="cart-button d-flex gap-2 justify-content-center align-items-center">
                     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -698,16 +701,16 @@
               </div>
               <div class="card-detail d-flex justify-content-between align-items-center mt-3">
                 <h3 class="card-title fs-6 fw-normal m-0">
-                  <a href="index.html">Shirts for men</a>
+                  <a href="index.html">Ethinic Wears for Women</a>
                 </h3>
-                <span class="card-price fw-bold">$99</span>
+                <span class="card-price fw-bold">299</span>
               </div>
             </div>
           </div>
           <div class="col mb-4">
             <div class="product-card position-relative">
               <div class="card-img">
-                <img src="images/card-item3.jpg" alt="product-item" class="product-image img-fluid">
+                <img src="images/top-5.webp" style="height:310px; width:305px" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
                   <div class="cart-button d-flex gap-2 justify-content-center align-items-center">
                     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -726,16 +729,16 @@
               </div>
               <div class="card-detail d-flex justify-content-between align-items-center mt-3">
                 <h3 class="card-title fs-6 fw-normal m-0">
-                  <a href="index.html">Shirts for men</a>
+                  <a href="index.html">Tops for women</a>
                 </h3>
-                <span class="card-price fw-bold">$99</span>
+                <span class="card-price fw-bold">299</span>
               </div>
             </div>
           </div>
           <div class="col mb-4">
             <div class="product-card position-relative">
               <div class="card-img">
-                <img src="images/card-item4.jpg" alt="product-item" class="product-image img-fluid">
+                <img src="images/top-6.jpg" style="height:310px; width:305px" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
                   <div class="cart-button d-flex gap-2 justify-content-center align-items-center">
                     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -754,16 +757,16 @@
               </div>
               <div class="card-detail d-flex justify-content-between align-items-center mt-3">
                 <h3 class="card-title fs-6 fw-normal m-0">
-                  <a href="index.html">Shirts for men</a>
+                  <a href="index.html">Cord Set for women</a>
                 </h3>
-                <span class="card-price fw-bold">$99</span>
+                <span class="card-price fw-bold">299</span>
               </div>
             </div>
           </div>
           <div class="col mb-4">
             <div class="product-card position-relative">
               <div class="card-img">
-                <img src="images/card-item5.jpg" alt="product-item" class="product-image img-fluid">
+                <img src="images/shirt-4.jpg" style="height:310px; width:305px" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
                   <div class="cart-button d-flex gap-2 justify-content-center align-items-center">
                     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -782,9 +785,9 @@
               </div>
               <div class="card-detail d-flex justify-content-between align-items-center mt-3">
                 <h3 class="card-title fs-6 fw-normal m-0">
-                  <a href="index.html">Shirts for men</a>
+                  <a href="index.html">TShirts for men</a>
                 </h3>
-                <span class="card-price fw-bold">$99</span>
+                <span class="card-price fw-bold">199</span>
               </div>
             </div>
           </div>
@@ -797,23 +800,24 @@
       <div class="row">
         <div class="col-lg-6 col-md-6 mb-4">
           <div class="collection-card card border-0 d-flex flex-row align-items-end jarallax-keep-img">
-            <img src="images/collection-item1.jpg" alt="product-item" class="border-rounded-10 img-fluid jarallax-img">
+            <img src="images/top-7.webp" style="height:510px; width:505px" alt="product-item" class="border-rounded-10 img-fluid jarallax-img">
             <div class="card-detail p-3 m-3 p-lg-5 m-lg-5">
-              <h3 class="card-title display-3">
+              <h5 class="card-title display-3"  style="font-size: 40px;">
                 <a href="#">Minimal Collection</a>
-              </h3>
-              <a href="index.html" class="text-uppercase mt-3 d-inline-block text-hover fw-bold">Shop Now</a>
+              </h5>
+              <a th:href="@{/shop}" class="text-uppercase mt-3 d-inline-block text-hover fw-bold">Shop Now</a>
+
             </div>
           </div>
         </div>
         <div class="col-lg-6 col-md-6">
           <div class="collection-card card border-0 d-flex flex-row jarallax-keep-img">
-            <img src="images/collection-item2.jpg" alt="product-item" class="border-rounded-10 img-fluid jarallax-img">
+            <img src="images/shirt-5.webp" style="height:510px; width:505px" alt="product-item" class="border-rounded-10 img-fluid jarallax-img">
             <div class="card-detail p-3 m-3 p-lg-5 m-lg-5">
-              <h3 class="card-title display-3">
-                <a href="#">Geans Collection</a>
-              </h3>
-              <a href="index.html" class="text-uppercase mt-3 d-inline-block text-hover fw-bold">Shop Now</a>
+              <h5 class="card-title display-3" style="font-size: 40px;">
+                <a href="#">Shirts Collection</a>
+              </h5>
+              <a th:href="@{/shopMen}" class="text-uppercase mt-3 d-inline-block text-hover fw-bold">Shop Now</a>
             </div>
           </div>
         </div>
@@ -824,16 +828,18 @@
     <div class="container-md">
       <div class="display-header d-flex align-items-center justify-content-between">
         <h2 class="section-title text-uppercase">Latest Products</h2>
-        <div class="btn-right">
-          <a href="index.html" class="d-inline-block text-uppercase text-hover fw-bold">View all</a>
-        </div>
+          <div class="btn-right">
+              <a th:href="@{/products}" class="d-inline-block text-uppercase text-hover fw-bold">View all</a>
+          </div>
+
+
       </div>
       <div class="product-content padding-small">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5">
           <div class="col mb-4 mb-3">
             <div class="product-card position-relative">
               <div class="card-img">
-                <img src="images/card-item6.jpg" alt="product-item" class="product-image img-fluid">
+                <img src="images/shirt-6.jpg" style="height:310px; width:305px" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
                   <div class="cart-button d-flex gap-2 justify-content-center align-items-center">
                     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -854,14 +860,14 @@
                 <h3 class="card-title fs-6 fw-normal m-0">
                   <a href="index.html">Shirts for men</a>
                 </h3>
-                <span class="card-price fw-bold">$99</span>
+                <span class="card-price fw-bold">499</span>
               </div>
             </div>
           </div>
           <div class="col mb-4 mb-3">
             <div class="product-card position-relative">
               <div class="card-img">
-                <img src="images/card-item7.jpg" alt="product-item" class="product-image img-fluid">
+                <img src="images/top-8.jpg" style="height:310px; width:305px" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
                   <div class="cart-button d-flex gap-2 justify-content-center align-items-center">
                     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -880,44 +886,16 @@
               </div>
               <div class="card-detail d-flex justify-content-between align-items-center mt-3">
                 <h3 class="card-title fs-6 fw-normal m-0">
-                  <a href="index.html">shirts for men</a>
+                  <a href="index.html">Anarkali Kurthis for women</a>
                 </h3>
-                <span class="card-price fw-bold">$99</span>
+                <span class="card-price fw-bold">699</span>
               </div>
             </div>
           </div>
           <div class="col mb-4 mb-3">
             <div class="product-card position-relative">
               <div class="card-img">
-                <img src="images/card-item8.jpg" alt="product-item" class="product-image img-fluid">
-                <div class="cart-concern position-absolute d-flex justify-content-center">
-                  <div class="cart-button d-flex gap-2 justify-content-center align-items-center">
-                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
-                      <svg class="shopping-carriage">
-                        <use xlink:href="#shopping-carriage"></use>
-                      </svg>
-                    </button>
-                    <button type="button" class="btn btn-light" data-bs-target="#modaltoggle" data-bs-toggle="modal">
-                      <svg class="quick-view">
-                        <use xlink:href="#quick-view"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <!-- cart-concern -->
-              </div>
-              <div class="card-detail d-flex justify-content-between align-items-center mt-3">
-                <h3 class="card-title fs-6 fw-normal m-0">
-                  <a href="index.html">Shirts for men</a>
-                </h3>
-                <span class="card-price fw-bold">$99</span>
-              </div>
-            </div>
-          </div>
-          <div class="col mb-4 mb-3">
-            <div class="product-card position-relative">
-              <div class="card-img">
-                <img src="images/card-item9.jpg" alt="product-item" class="product-image img-fluid">
+                <img src="images/shirt-7.jpg" style="height:310px; width:305px" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
                   <div class="cart-button d-flex gap-2 justify-content-center align-items-center">
                     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -938,14 +916,42 @@
                 <h3 class="card-title fs-6 fw-normal m-0">
                   <a href="index.html">Shirts for men</a>
                 </h3>
-                <span class="card-price fw-bold">$99</span>
+                <span class="card-price fw-bold">599</span>
               </div>
             </div>
           </div>
           <div class="col mb-4 mb-3">
             <div class="product-card position-relative">
               <div class="card-img">
-                <img src="images/card-item10.jpg" alt="product-item" class="product-image img-fluid">
+                <img src="images/top-9.jpg" style="height:310px; width:305px" alt="product-item" class="product-image img-fluid">
+                <div class="cart-concern position-absolute d-flex justify-content-center">
+                  <div class="cart-button d-flex gap-2 justify-content-center align-items-center">
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
+                      <svg class="shopping-carriage">
+                        <use xlink:href="#shopping-carriage"></use>
+                      </svg>
+                    </button>
+                    <button type="button" class="btn btn-light" data-bs-target="#modaltoggle" data-bs-toggle="modal">
+                      <svg class="quick-view">
+                        <use xlink:href="#quick-view"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <!-- cart-concern -->
+              </div>
+              <div class="card-detail d-flex justify-content-between align-items-center mt-3">
+                <h3 class="card-title fs-6 fw-normal m-0">
+                  <a href="index.html">Sarees for women</a>
+                </h3>
+                <span class="card-price fw-bold">489</span>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4 mb-3">
+            <div class="product-card position-relative">
+              <div class="card-img">
+                <img src="images/shirt-8.jpg" style="height:310px; width:305px" alt="product-item" class="product-image img-fluid">
                 <div class="cart-concern position-absolute d-flex justify-content-center">
                   <div class="cart-button d-flex gap-2 justify-content-center align-items-center">
                     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -966,7 +972,7 @@
                 <h3 class="card-title fs-6 fw-normal m-0">
                   <a href="index.html">Shirts for men</a>
                 </h3>
-                <span class="card-price fw-bold">$99</span>
+                <span class="card-price fw-bold">649</span>
               </div>
             </div>
           </div>
@@ -1036,7 +1042,7 @@
         </div>
         <div class="col-lg-2 pb-3">
           <div class="footer-menu">
-            <h5 class="widget-title pb-2">Women Shoes</h5>
+            <h5 class="widget-title pb-2">Womens Collection</h5>
             <ul class="menu-list list-unstyled">
               <li class="pb-2">
                 <a href="#">Track Your Order</a>

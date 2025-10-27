@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .cart-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: transform 0.2s;
+        }
+
+        .cart-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .cart-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-details h3 {
+            margin: 0 0 5px 0;
+        }
+
+        .cart-item-details p {
+            margin: 3px 0;
+        }
+
+        .remove-btn {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #000;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .remove-btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .cart-summary {
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: right;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .cart-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .cart-buttons a {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .cart-buttons a:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        @media (max-width: 600px) {
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cart-item img {
+                margin-bottom: 10px;
+            }
+
+            .cart-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🛒 Your Cart</h1>
+
+<div class="cart-container">
+
+    <!-- ✅ Empty Cart Message -->
+    <div th:if="${cartItems.isEmpty()}" style="text-align:center; padding:50px; background:#fff; border-radius:10px;">
+        <h3>Your cart is empty!</h3>
+        <a th:href="@{/products}" style="background-color:black; color:white; padding:10px 20px; border-radius:5px; text-decoration:none;">Continue Shopping</a>
+    </div>
+
+    <!-- ✅ Display Each Cart Item -->
+    <div th:each="item : ${cartItems}" class="cart-item" th:id="'cart-item-' + ${item.id}">
+        <img th:src="@{${item.itemImg}}" alt="Product Image">
+        <div class="cart-item-details">
+            <h3 th:text="${item.name}">Product Name</h3>
+            <p>Price: ₹<span th:text="${item.price}">0</span></p>
+            <p>Quantity: <span th:text="${item.quantity}">1</span></p>
+        </div>
+        <button class="remove-btn" th:data-id="${item.id}">Remove</button>
+    </div>
+
+    <!-- ✅ Summary -->
+    <div class="cart-summary" th:if="${!cartItems.isEmpty()}">
+        Total: ₹<span th:text="${total}">0</span>
+    </div>
+
+    <!-- ✅ Buttons -->
+    <div class="cart-buttons" th:if="${!cartItems.isEmpty()}">
+        <a th:href="@{/products}">Continue Shopping</a>
+        <a th:href="@{/cart/checkOut}">Proceed to Checkout</a>
+    </div>
+</div>
+
+<!-- ✅ jQuery AJAX for Remove -->
+<script>
+    $(document).ready(function() {
+        $('.remove-btn').on('click', function() {
+            var itemId = $(this).data('id');
+
+            $.ajax({
+                url: '/cart/remove/' + itemId,
+                type: 'DELETE',
+                success: function() {
+                    $('#cart-item-' + itemId).fadeOut(300, function() { $(this).remove(); });
+                    setTimeout(() => location.reload(), 300); // reload total
+                },
+                error: function() {
+                    alert('❌ Failed to remove product.');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

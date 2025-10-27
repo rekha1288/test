@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Successful 🎉</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f8;
+            text-align: center;
+            padding: 40px;
+        }
+        .success-container {
+            background: #fff;
+            max-width: 600px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #28a745;
+        }
+        p {
+            font-size: 1rem;
+            color: #333;
+        }
+        .order-details {
+            text-align: left;
+            margin: 20px auto;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+        }
+        .order-details p {
+            margin: 8px 0;
+        }
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: black;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        a.button:hover {
+            background: #ff6600;
+        }
+    </style>
+</head>
+<body>
+<div class="success-container">
+    <h1>🎉 Order Successful!</h1>
+    <p>Thank you for your purchase. Your order has been placed successfully.</p>
+
+    <div class="order-details">
+        <h3>🧾 Order Summary</h3>
+        <p><strong>Name:</strong> <span th:text="${order.firstName + ' ' + order.lastName}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${order.email}"></span></p>
+        <p><strong>Address:</strong>
+            <span th:text="${order.address + ', ' + order.city + ' - ' + order.postal}"></span>
+        </p>
+        <p><strong>Payment Method:</strong> <span th:text="${order.paymentMethod}"></span></p>
+        <p><strong>Total Amount:</strong> ₹<span th:text="${order.total}"></span></p>
+    </div>
+
+    <a class="button" th:href="@{/products}">Back to Products</a>
+</div>
+
+<!-- Optional: redirect to product page after few seconds -->
+<script>
+    setTimeout(() => {
+        window.location.href = '/products';
+    }, 8000); // 8 seconds redirect
+</script>
+
+</body>
+</html>
