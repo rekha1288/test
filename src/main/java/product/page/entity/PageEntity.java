@@ -13,22 +13,22 @@ import lombok.NoArgsConstructor;
 public class PageEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // ✅ safer for DB auto increment
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // ---------- 🛍️ Product Fields ----------
     private String name;
+
+    @Column(length = 5000)
     private String description;
+
     private double price;
     private String imageUrl;
     private int quantity;
 
-    // ---------- 🛒 Cart/Product Tracking ----------
-    private String type;      // "product", "cart", or "order"
-    private Long itemId;      // Reference to original product (for cart)
-    private String itemImg;   // Duplicate product image for cart items
+    private String type;
+    private Long itemId;
+    private String itemImg;
 
-    // ---------- 💳 Order Fields ----------
     private String firstName;
     private String lastName;
     private String email;

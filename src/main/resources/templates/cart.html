@@ -135,7 +135,7 @@
     <!-- ✅ Empty Cart Message -->
     <div th:if="${cartItems.isEmpty()}" style="text-align:center; padding:50px; background:#fff; border-radius:10px;">
         <h3>Your cart is empty!</h3>
-        <a th:href="@{/products}" style="background-color:black; color:white; padding:10px 20px; border-radius:5px; text-decoration:none;">Continue Shopping</a>
+        <a th:href="@{/admin/products}" style="background-color:black; color:white; padding:10px 20px; border-radius:5px; text-decoration:none;">Continue Shopping</a>
     </div>
 
     <!-- ✅ Display Each Cart Item -->

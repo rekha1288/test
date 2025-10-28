@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "pro_details")
+@Table(name = "products")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +17,14 @@ public class DetailsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String shortDescp;
+
+    @Column(length = 5000)
     private String description;
+
     private double price;
     private String imageUrl;
+    private String material;
+    private String size;
+    private String features;
 }

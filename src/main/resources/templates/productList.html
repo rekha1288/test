@@ -79,8 +79,11 @@
     <a class="card" th:each="product : ${products}" th:href="@{'/admin/product/' + ${product.id}}">
         <img th:src="@{${product.imageUrl}}" alt="Product Image" class="product-img" />
         <h3 th:text="${product.name}">Product Name</h3>
-        <p th:text="${product.description}">Description</p>
+        <p th:text="${product.shortDescp}">Description</p>
+        <p th:text="${product.description}">Description detail</p>
         <p class="price">₹<span th:text="${product.price}">0.00</span></p>
+        <p class="material"><span th:text="${product.material}">Cotton</span></p>
+        <p class="features"><span th:text="${product.feature}">Comfortable Cotton</span> </p>
     </a>
 </div>
 </body>

@@ -35,4 +35,5 @@ public class DetailsController {
         model.addAttribute("product", product);
         return "productDetails"; // Thymeleaf template
     }
+
 }

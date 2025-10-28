@@ -5,10 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${product.name}">Product Details</title>
     <style>
-        body { font-family: 'Poppins', sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; }
-        nav { background-color: black; color: white; padding: 12px 25px; }
-        nav a { color: white; text-decoration: none; margin-left: 20px; background-color: #ff6600; padding: 8px 15px; border-radius: 6px; font-weight: bold; }
-        nav a:hover { background-color: white; color: black; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: black;
+            color: white;
+            padding: 12px 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            background-color: #ff6600;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: white;
+            color: black;
+        }
 
         .product-container {
             display: flex;
@@ -17,10 +40,10 @@
             margin: 30px auto;
             max-width: 1000px;
             background: white;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 30px;
+            border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            gap: 30px;
+            gap: 40px;
         }
 
         .product-image {
@@ -41,15 +64,53 @@
             justify-content: space-between;
         }
 
-        .product-info h2 { margin-top: 0; font-size: 2rem; color: #333; }
-        .product-info .price { font-weight: bold; font-size: 1.5rem; margin: 10px 0; color: #000; }
-        .product-info p { color: #555; line-height: 1.5; }
+        .product-info h2 {
+            margin-top: 0;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .product-info .price {
+            font-weight: bold;
+            font-size: 1.6rem;
+            margin: 12px 0;
+            color: #000;
+        }
+
+        .product-info p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .details-section {
+            margin-top: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            padding: 15px 20px;
+        }
+
+        .details-section h3 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+            color: #222;
+        }
+
+        .details-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .details-section li {
+            margin: 5px 0;
+            color: #444;
+        }
 
         .add-cart-section {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         input[type="number"] {
@@ -71,11 +132,19 @@
             transition: 0.3s;
         }
 
-        button:hover { background-color: #ff6600; }
+        button:hover {
+            background-color: #ff6600;
+        }
 
         @media (max-width: 800px) {
-            .product-container { flex-direction: column; align-items: center; }
-            .product-info { align-items: center; text-align: center; }
+            .product-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .product-info {
+                align-items: center;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -96,6 +165,16 @@
         <h2 th:text="${product.name}">Product Name</h2>
         <p class="price">₹<span th:text="${product.price}">0.0</span></p>
         <p th:text="${product.description}">Product Description</p>
+
+        <!-- Material, Size, Features -->
+        <div class="details-section">
+            <h3>Product Details</h3>
+            <ul>
+                <li><strong>Material:</strong> <span th:text="${product.material}">Cotton</span></li>
+                <li><strong>Size:</strong> <span th:text="${product.size}">M</span></li>
+                <li><strong>Features:</strong> <span th:text="${product.features}">Soft fabric, breathable</span></li>
+            </ul>
+        </div>
 
         <!-- Add to Cart -->
         <form class="add-cart-section" onsubmit="addToCart(event, this)">

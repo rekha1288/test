@@ -27,7 +27,7 @@
 
         h2 {
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 50px;
         }
 
         form {
@@ -93,10 +93,15 @@
 <div class="form-container">
     <h2>Add New Product</h2>
 
-    <form th:action="@{/admin/addProduct}" method="post" enctype="multipart/form-data" th:object="${product}">
+    <form th:action="@{/admin/showDetails}" method="post" enctype="multipart/form-data" th:object="${product}">
         <input type="text" th:field="*{name}" placeholder="Product Name" required>
-        <textarea th:field="*{description}" placeholder="Product Description" rows="3"></textarea>
+        <textarea th:field="*{shortDescp}" placeholder="Product Description" rows="3"></textarea>
+        <textarea th:field="*{description}" placeholder="Product Description"
+                  rows="10" style="min-height: 150px; resize: vertical;" maxlength="5000"></textarea>
         <input type="number" th:field="*{price}" step="0.01" placeholder="Product Price" required>
+        <input type="text" th:field="*{material}" placeholder="Materials Used">
+        <input type="text" th:field="*{size}" placeholder="Available sizes">
+        <input type="text" th:field="*{features}" placeholder="Features of the product">
         <input type="file" name="imageFile" accept="image/*" required>
         <button type="submit">Add Product</button>
     </form>

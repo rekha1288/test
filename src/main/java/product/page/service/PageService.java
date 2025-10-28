@@ -2,6 +2,7 @@ package product.page.service;
 
 import org.springframework.stereotype.Service;
 import product.page.entity.PageEntity;
+import product.page.entity.ProductEntity;
 import product.page.repository.PageRepo;
 
 import java.util.List;
@@ -31,27 +32,11 @@ public class PageService {
         return pageRepo.save(pageEntity);
     }
 
-    // 🛍️ Get all products
-    public List<PageEntity> getAllProducts() {
-        return pageRepo.findAll()
-                .stream()
-                .filter(item -> "product".equalsIgnoreCase(item.getType()))
-                .collect(Collectors.toList());
-    }
-
     // 🛒 Get all cart items
     public List<PageEntity> getAllCartItems() {
         return pageRepo.findAll()
                 .stream()
                 .filter(item -> "cart".equalsIgnoreCase(item.getType()))
-                .collect(Collectors.toList());
-    }
-
-    // 📦 Get all orders
-    public List<PageEntity> getAllOrders() {
-        return pageRepo.findAll()
-                .stream()
-                .filter(item -> "order".equalsIgnoreCase(item.getType()))
                 .collect(Collectors.toList());
     }
 
@@ -61,6 +46,14 @@ public class PageService {
                 .stream()
                 .mapToDouble(item -> item.getPrice() * item.getQuantity())
                 .sum();
+    }
+
+    // 📦 Get all orders
+    public List<PageEntity> getAllOrders() {
+        return pageRepo.findAll()
+                .stream()
+                .filter(item -> "order".equalsIgnoreCase(item.getType()))
+                .collect(Collectors.toList());
     }
 
     // 🧹 Clear cart after order
